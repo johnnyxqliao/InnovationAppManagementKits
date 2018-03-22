@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="InnovationAppManagementKits">
+    <output-path>$PROJECT_DIR$/..</output-path>
+    <root id="archive" name="InnovationAppManagementKits.war">
+      <element id="artifact" artifact-name="InnovationAppManagementKits:war exploded" />
+    </root>
+  </artifact>
+</component>

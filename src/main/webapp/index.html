@@ -1,0 +1,420 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	  <title>创新方法工作平台</title>
+	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	  <meta name="description" content="overview &amp; stats"/>
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	  <!--前台css和js-->
+	  <link rel="stylesheet" href="webresources/ace-master/assets/css/bootstrap.min.css"/>
+	  <link rel="stylesheet" href="webresources/ace-master/assets/css/ace.min.css"/>
+	  <link rel="stylesheet" href="webresources/ace-master/assets/font-awesome/4.5.0/css/font-awesome.min.css"/>
+	  <link rel="stylesheet" href="webresources/ace-master/assets/css/ace-rtl.min.css"/>
+	  <link rel="stylesheet" href="webresources/ace-master/assets/css/ace-skins.min.css"/>
+	  <link rel="stylesheet" href="webresources/ace-master/assets/css/fonts.googleapis.com.css"/>
+	  <link rel="stylesheet" href="css/Extra.css"/>
+	  <link rel="stylesheet" href="css/searchStyle.css"/>
+	  <link rel="stylesheet" href="css/gallery-style.css"/>
+	  <script type="text/javascript" src="webresources/ace-master/assets/js/ace-extra.min.js"></script>
+	  <script type="text/javascript" src="webresources/ace-master/assets/js/jquery-2.1.4.min.js"></script>
+	  <script type="text/javascript" src="webresources/ace-master/assets/js/ace.min.js"></script>
+	  <script type="text/javascript" src="webresources/ace-master/assets/js/bootstrap.min.js"></script>
+	  <script type="text/javascript" src="webresources/ace-master/assets/js/jquery.dataTables.min.js"></script>
+	  <script type="text/javascript"
+			  src="webresources/ace-master/assets/js/jquery.dataTables.bootstrap.min.js"></script>
+	  <script type="text/javascript" src="webresources/ace-master/assets/js/jquery-ui.custom.min.js"></script>
+	  <script type="text/javascript" src="webresources/ace-master/assets/js/jquery.ui.touch-punch.min.js"></script>
+	  <script type="text/javascript" src="webresources/ace-master/assets/js/ace-elements.min.js"></script>
+	  <script type="text/javascript" src="webresources/ace-master/assets/js/jquery.mobile.custom.min.js"></script>
+	  <script type="text/javascript" src="js/userLogin.js"></script>
+	  <script type="text/javascript" src="js/fuzzySearch.js"></script>
+	  <script type="text/javascript" src="js/buttonAction.js"></script>
+</head>
+<body class="no-skin">
+<!--嵌入导航栏-->
+<div class="navbar navbar-default">
+	  <div class="navbar-container" id="navbar-container">
+			<button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler"
+					data-target="#sidebarDiv">
+				  <span class="sr-only">Toggle sidebar</span>
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+			</button>
+			<div class="navbar-header pull-left">
+				  <a id="href0" href="http://innovation.xjtu.edu.cn/" class="navbar-brand">
+						<small>
+							  <i class="fa fa-leaf"></i>小微企业多创新方法融合与集成应用平台
+						</small>
+				  </a>
+				  <a id="href1" href="#" class="navbar-brand">
+						<small>
+							  <small class="showAppNameDiv">基础创新方法管理工具集</small>
+						</small>
+				  </a>
+			</div>
+			<div class="navbar-header pull-right" role="navigation">
+				  <ul class="nav ace-nav" style="height: 20px;">
+						<li class="grey">
+							  <a id="href2" data-toggle="dropdown" href="<%=basePath%>appList" onclick="gotoHref(this)"
+								 class="dropdown-toggle">
+									<img class="nav-user-photo" type="text/javascript"
+										 src="webresources/ace-master/assets/images/avatars/platform.png" alt="平台首页"
+									/> 平台主页
+							  </a>
+						</li>
+						<li class="purple">
+							  <a href="#" onclick="gotoHref(this)">
+									<img class="nav-user-photo" type="text/javascript"
+										 src="webresources/ace-master/assets/images/avatars/process.png" alt="模板层"
+									/> 模板层
+							  </a>
+						</li>
+						<li class="green">
+							  <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+									<img class="nav-user-photo" type="text/javascript"
+										 src="webresources/ace-master/assets/images/avatars/tool.png" alt="工具集"
+									/> 工具集
+									</i>
+							  </a>
+						</li>
+						<li class="light-blue">
+							  <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+									<img id="userAvatar" class="nav-user-photo" type="text/javascript"
+										 src="webresources/ace-master/assets/images/avatars/avatar2.png"
+										 alt="用户头像"/>
+									<span class="user-info">
+							<small>欢迎光临,</small>
+							<span id="userName">
+							</span>
+						</span>
+									<i class="icon-caret-down"></i>
+							  </a>
+							  <ul id="userDropDown"
+								  class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+							  </ul>
+						</li>
+				  </ul>
+			</div>
+	  </div>
+</div>
+<div class="main-container ace-save-state" id="main-container">
+	  <!--嵌入侧边栏-->
+	  <div class="sidebar responsive ace-save-state" id="sidebar">
+			<!-- 功能按钮区域 -->
+			<div class="sidebar-shortcuts" id="sidebar-shortcuts">
+				  <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+						<button class="btn btn-success" title="查看项目" data-toggle="tab" href="#projectManagementDiv"
+								id="checkProjectMana">
+							  <i class="ace-icon fa fa-table"></i>
+						</button>
+						<button class="btn btn-info" data-toggle="modal" data-target="#newProjectModal" title="新建项目">
+							  <i class="ace-icon fa fa-pencil"></i>
+						</button>
+						<button class="btn btn-warning" title="使用帮助" data-toggle="modal" data-target="#helpModal">
+							  <i class="ace-icon fa fa-question-circle"></i>
+						</button>
+						<button class="btn btn-danger" title="我的主页">
+							  <i class="ace-icon fa fa-paper-plane"></i>
+						</button>
+				  </div>
+				  <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+						<span class="btn btn-success"></span>
+						<span class="btn btn-info"></span>
+						<span class="btn btn-warning"></span>
+						<span class="btn btn-danger"></span>
+				  </div>
+			</div>
+			<!-- 侧边栏 -->
+			<ul class="nav nav-list">
+				  <li class="open">
+						<a href="#" class="dropdown-toggle">
+							  <i class="menu-icon fa fa-desktop"></i>
+							  <span class="menu-text" onclick="showAllApp()">
+								我的APP
+							</span>
+						</a>
+						<ul class="submenu nav-hide">
+							  <li class="">
+									<a href="#" class="dropdown-toggle" onclick="showListApp(this)">
+										  <i class="menu-icon fa fa-caret-right"></i>
+										  知识工程
+									</a>
+							  </li>
+
+							  <li class="">
+									<a href="#" onclick="showListApp(this)">
+										  <i class="menu-icon fa fa-caret-right"></i>
+										  TRIZ
+									</a>
+							  </li>
+
+							  <li class="">
+									<a href="#" class="dropdown-toggle" onclick="showListApp(this)">
+										  <i class="menu-icon fa fa-caret-right"></i>
+										  质量分析
+										  <!--<b class="arrow fa fa-angle-down"></b>-->
+									</a>
+									<!--<ul class="submenu">-->
+									<!--<li class="">-->
+									<!--<a href="#">-->
+									<!--<i class="menu-icon fa fa-caret-right"></i>-->
+									<!--质量控制-->
+									<!--</a>-->
+									<!--</li>-->
+
+									<!--<li class="">-->
+									<!--<a href="#">-->
+									<!--<i class="menu-icon fa fa-caret-right"></i>-->
+									<!--质量管理-->
+									<!--</a>-->
+									<!--</li>-->
+									<!--</ul>-->
+							  </li>
+
+							  <li class="">
+									<a href="#" onclick="showListApp(this)">
+										  <i class="menu-icon fa fa-caret-right"></i>
+										  企业管理
+									</a>
+
+									<b class="arrow"></b>
+							  </li>
+
+							  <li class="">
+									<a href="#" onclick="showListApp(this)">
+										  <i class="menu-icon fa fa-caret-right"></i>
+										  产品设计
+									</a>
+							  </li>
+
+							  <li class="">
+									<a href="#" class="dropdown-toggle" onclick="showListApp(this)">
+										  <i class="menu-icon fa fa-caret-right"></i>
+										  创新思维
+										  <!--<b class="arrow fa fa-angle-down"></b>-->
+									</a>
+									<!--<ul class="submenu">-->
+									<!--<li class="">-->
+									<!--<a href="#">-->
+									<!--<i class="menu-icon fa fa-caret-right"></i>-->
+									<!--发散思维-->
+									<!--</a>-->
+									<!--</li>-->
+
+									<!--<li class="">-->
+									<!--<a href="#">-->
+									<!--<i class="menu-icon fa fa-caret-right"></i>-->
+									<!--逆向思维-->
+									<!--</a>-->
+									<!--</li>-->
+
+									<!--<li class="">-->
+									<!--<a href="#">-->
+									<!--<i class="menu-icon fa fa-caret-right"></i>-->
+									<!--联想思维-->
+									<!--</a>-->
+									<!--</li>-->
+
+									<!--<li class="">-->
+									<!--<a href="#">-->
+									<!--<i class="menu-icon fa fa-caret-right"></i>-->
+									<!--综合思维-->
+									<!--</a>-->
+
+									<!--<b class="arrow"></b>-->
+									<!--</li>-->
+
+									<!--<li class="">-->
+									<!--<a href="#">-->
+									<!--<i class="menu-icon fa fa-caret-right"></i>-->
+									<!--综合思维-->
+									<!--</a>-->
+
+									<!--<b class="arrow"></b>-->
+									<!--</li>-->
+
+									<!--<li class="">-->
+									<!--<a href="#">-->
+									<!--<i class="menu-icon fa fa-caret-right"></i>-->
+									<!--集成思维-->
+									<!--</a>-->
+									<!--</li>-->
+									<!--</ul>-->
+							  </li>
+						</ul>
+				  </li>
+			</ul>
+			<!--侧边栏收缩按钮-->
+			<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+				  <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state"
+					 data-icon1="ace-icon fa fa-angle-double-left"
+					 data-icon2="ace-icon fa fa-angle-double-right"></i>
+			</div>
+	  </div>
+	  <div class="main-content">
+			<div class="main-content-inner">
+				  <!--嵌入面包屑-->
+				  <div class="breadcrumbs ace-save-state" id="breadcrumbsHtml">
+						<ul class="breadcrumb">
+							  <li>
+									<i class="ace-icon fa fa-home home-icon"></i>
+									<a href="#">创新方法工具平台</a>
+							  </li>
+							  <li class="active showAppNameDiv">基础创新方法管理工具集</li>
+						</ul>
+						<div class="nav-search" id="nav-search">
+							  <form class="form-search">
+								<span class="input-icon">
+									<input type="text" placeholder="请输入名称" class="nav-search-input selectInput"
+										   list="cityList" value="" onfocus="fuzzySearch.call(this)"
+										   id="cityName" autocomplete="off">
+									<i class="ace-icon fa fa-search nav-search-icon"></i>
+								</span>
+							  </form>
+						</div>
+				  </div>
+				  <div class="page-content">
+						<div class="row">
+							  <div class="col-sm-6">
+									<div class="tabbable">
+										  <ul class="nav nav-tabs" id="myTab">
+												<li class="active">
+													  <a data-toggle="tab" href="#allAppTab" id="mainFunctionBar"><i
+														  class="green ace-icon fa fa-desktop bigger-120"></i>所有APP</a>
+												</li>
+
+												<!--<li>-->
+												<!--<a data-toggle="tab" href="#oftenAppTab"><i-->
+												<!--class="purple ace-icon fa fa-bar-chart-o bigger-120"></i>可用APP</a>-->
+												<!--</li>-->
+												<!--<li>-->
+												<!--<a data-toggle="tab" href="#blockAppTab"><i-->
+												<!--class="blue ace-icon fa fa-eye-slash bigger-120"></i>禁用APP</a>-->
+												<!--</li>-->
+										  </ul>
+										  <div class="tab-content" id="pageContent">
+												<!--所有App分类-->
+												<div class="tab-pane active" id="allAppTab">
+													  <div id="gallery"
+														   style="margin: 5px 6px 10px 2px;"
+														   align="center" class="gallery">
+															<ul class="gallery-entries clearfix"
+																style="width: 100%; margin-left: 0px" id="cityList">
+															</ul>
+													  </div>
+												</div>
+												<!--&lt;!&ndash;常用App分类&ndash;&gt;-->
+												<!--<div class="tab-pane" id="oftenAppTab">-->
+												<!--<div id="oftenAppGallery"-->
+												<!--style="margin: 5px 6px 10px 2px;"-->
+												<!--align="center" class="gallery">-->
+												<!--<ul class="gallery-entries clearfix"-->
+												<!--style="width: 100%; margin-left: 0">-->
+												<!--</ul>-->
+												<!--</div>-->
+												<!--</div>-->
+												<!--禁用App分类-->
+												<!--<div class="tab-pane" id="blockAppTab">-->
+												<!--<div id="blockAppGallery"-->
+												<!--style="margin: 5px 6px 10px 2px;"-->
+												<!--align="center" class="gallery">-->
+												<!--<ul class="gallery-entries clearfix"-->
+												<!--style="width: 100%; margin-left: 0">-->
+												<!--</ul>-->
+												<!--</div>-->
+												<!--</div>-->
+										  </div>
+									</div>
+							  </div>
+						</div>
+				  </div>
+			</div>
+	  </div>
+	  <!--footer-->
+	  <div class="footer" id="copyRightHtml">
+			<div class="footer-inner">
+				  <div class="footer-content" style="left: 2px;right: 2px;padding: 0px;">
+						<ul>
+				<span class="bigger-120">
+					<span class="blue bolder">
+						<a href="http://cadcam.xjtu.edu.cn/">西安交通大学CAD/CAM研究室 </a>
+					</span>
+				</span>
+							  <span>Copyright&copy; 2017</span>
+						</ul>
+				  </div>
+			</div>
+	  </div>
+</div>
+<!--模态框-->
+<div id="modalFrameHtml">
+	  <!--常用App模态框-->
+	  <div class="modal fade" id="manageOftenApp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+		   aria-hidden="true">
+			<div class="modal-dialog">
+				  <div class="modal-content">
+						<div class="modal-header">
+							  <h4 class="modal-title" id="appName">
+									创新方法App基本信息
+							  </h4>
+						</div>
+						<div class="modal-body" style="height: 250px;">
+							  <div class="profile-user-info profile-user-info-striped">
+									<div class="profile-info-row">
+										  <div class="profile-info-name"> 版本：</div>
+										  <div class="profile-info-value">
+												<span class="editable editable-click"
+													  id="appVersion">2010/06/20</span>
+										  </div>
+									</div>
+
+									<div class="profile-info-row">
+										  <div class="profile-info-name"> 状态：</div>
+										  <div class="profile-info-value">
+												<span class="editable editable-click"
+													  id="appStatus">2010/06/20</span>
+										  </div>
+									</div>
+
+									<div class="profile-info-row">
+										  <div class="profile-info-name"> 访问量：</div>
+										  <div class="profile-info-value">
+												<span class="editable editable-click"
+													  id="appVisitNum">2010/06/20</span>
+										  </div>
+									</div>
+
+									<div class="profile-info-row">
+										  <div class="profile-info-name">属性标签：</div>
+										  <div class="profile-info-value">
+												<span class="editable editable-click" id="appAttribute">38</span>
+										  </div>
+									</div>
+
+									<div class="profile-info-row">
+										  <div class="profile-info-name"> 功能描述：</div>
+										  <div class="profile-info-value">
+												<span class="editable editable-click" id="appFunctionDes">Editable as WYSIWYG</span>
+										  </div>
+									</div>
+							  </div>
+							  <div id="basicInfoButton" style="padding-left: 80px;padding-top: 20px;">
+									<button class="btn btn-danger" id="enterApp" onclick="enterApp()">进入App</button>
+									<button class="btn btn-inverse" id="startApp" onclick="startApp()">开启App</button>
+									<button class="btn btn-pink" id="stopApp" onclick="stopApp()">停止App</button>
+									<button class="btn btn-purple" id="reloadApp" onclick="reloadApp()">重启App</button>
+							  </div>
+						</div>
+						<div class="modal-footer">
+							  <button type="button" class="btn btn-primary" id="addProButton" data-dismiss="modal">
+									确认
+							  </button>
+						</div>
+				  </div>
+			</div>
+	  </div>
+</div>
+</body>
+</html>

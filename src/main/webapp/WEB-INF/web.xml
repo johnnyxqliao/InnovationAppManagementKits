@@ -1,0 +1,31 @@
+<!DOCTYPE web-app PUBLIC
+      "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+      "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+   <display-name>创新方法管理平台</display-name>
+   <context-param>
+      <param-name>webAppAttributeLabel</param-name>
+      <param-value>管理平台；后台App</param-value>
+   </context-param>
+   <context-param>
+      <param-name>webAppDescription</param-name>
+      <param-value>这是基础创新方法管理平台，主要进行webApp管理</param-value>
+   </context-param>
+   <context-param>
+      <param-name>webAppIcon</param-name>
+      <param-value>/liaoxiaoqiang/imgs/创新方法管理平台.png</param-value>
+   </context-param>
+   <context-param>
+      <param-name>webAppVersion</param-name>
+      <param-value>v2.0</param-value>
+   </context-param>
+   <context-param>
+      <param-name>webAppCategory</param-name>
+      <param-value>知识工程</param-value>
+   </context-param>
+</web-app>
